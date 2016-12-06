@@ -3,13 +3,13 @@
 
 _{Brief Details}, {Date}_
 
-_By Levi Bibo_
+__
 
 ##Description
 
 _{Extended Details}_
 
-_[Link to site.](https://levibibo.github.io/{site-name})_
+_[Link to site.]
 
 ##Specifications
 
@@ -17,7 +17,7 @@ _[Link to site.](https://levibibo.github.io/{site-name})_
 
 ##Support and contact details
 
-Check out my GitHub account: [Levi Bibo.](https://www.github.com/levibibo)
+Check out my GitHub account:
 
 ##Technologies used
 
@@ -27,4 +27,4 @@ _This site was built using {technologies}_
 
 _Created under an MIT license._
 
-_Copyright (c) {2016} Levi Bibo_
+_Copyright (c) {2016}
