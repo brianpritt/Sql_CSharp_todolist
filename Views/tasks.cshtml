@@ -1,19 +1,39 @@
+<h1>To Do List</h1>
+<hr />
+<h2>Tasks:</h2>
 @if (@Model.Count == 0)
 {
   <p>No tasks have been added yet!</p>
 }
 else
 {
-  <h1>Here is your list of tasks:</h1>
+  <h1>Here is your list of unfinished tasks:</h1>
   <ul>
     @foreach (var task in Model)
     {
-      <li>@task.GetDescription()</li>
+      if (task.GetCompleted() == false)
+      {
+        <li><a href='/tasks/@task.GetId()'>@task.GetDescription()</a></li>
+      }
+    }
+  </ul>
+  <h1>Here is your list of finished tasks:</h1>
+  <ul>
+    @foreach (var task in Model)
+    {
+      if (task.GetCompleted() == true)
+      {
+        <li><a href='/tasks/@task.GetId()'>@task.GetDescription()</a></li>
+      }
     }
   </ul>
   <form action="/tasks/delete" method="post">
+    <input type="hidden" name="_method" value="DELETE">
     <button type="submit">Clear all tasks</button>
   </form>
 }
+
+<a href="/tasks/complete">View Completed Tasks</a>
+<a href="/tasks/incomplete">View Incomplete Tasks</a>
 <p><a href="/tasks/new">Add a new task</a></p>
 <p><a href="/">Return home</a></p>

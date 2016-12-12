@@ -1,0 +1,36 @@
+@{
+  var task = Model["task"];
+  var categories = Model["allCategories"];
+  var taskCategories = Model["taskCategories"];
+}
+
+<h1>To Do List</h1>
+<h2>Task: @task.GetDescription()</h2>
+<form action="/tasks/@task.GetId()/complete" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <button class=""type="submit" name="completed">Done!</button>
+</form>
+<hr />
+@if (taskCategories.Count != 0)
+{
+  <h4>This task has these categories:</h4>
+  <ul>
+    @foreach (var taskCategory in taskCategories)
+    {
+      <li>@taskCategory.GetName()</li>
+    }
+  </ul>
+}
+<h4>Add a category to this task:</h4>
+<form action='/task/add_category' method='post'>
+  <input id='task-id' name='task-id' type='hidden' value='@task.GetId()'>
+  <label for='category-id'>Select a category</label>
+  <select id='category-id' name='category-id' type='text'>
+    @foreach (var category in categories)
+    {
+      <option value='@category.GetId()'>@category.GetName()</option>
+    }
+  </select>
+  <button type='submit'>Add</button>
+</form>
+<p><a href="/">Return to Main Page</a></p>
