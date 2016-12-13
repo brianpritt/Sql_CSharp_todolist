@@ -1,7 +1,9 @@
 <h1>Add a new task</h1>
 <form action="/tasks/new" method="post">
   <label for="task-description">Task description:</label>
-  <input id="task-description" name="task-description" type="text">
+  <input id="task-description" class="form-control" name="task-description" type="text" required>
+  <label for="due-date">Due Date:</label>
+  <input type="date" class="form-control" name="due-date" required>
   <button type="submit">Add new task</button>
 </form>
 <p><a href="/">Back home</a></p>

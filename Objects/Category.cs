@@ -173,7 +173,8 @@ namespace ToDoList
           int retrievedId = taskRdr.GetInt32(0);
           string retrievedDescription = taskRdr.GetString(1);
           bool taskCompleted = rdr.GetBoolean(2);
-          Task retrievedTask = new Task(retrievedDescription, taskCompleted, retrievedId);
+          DateTime taskDueDate = rdr.GetDateTime(3);
+          Task retrievedTask = new Task(retrievedDescription, taskDueDate, taskCompleted, retrievedId);
 
           retrievedTasks.Add(retrievedTask);
         }
